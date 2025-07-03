@@ -3,3 +3,11 @@
 
 # macOS
 .DS_Store
+
+# Gradle
+.gradle/
+build/
+
+# IntelliJ IDEA
+.idea/
+*.iml
