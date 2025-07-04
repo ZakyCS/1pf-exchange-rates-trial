@@ -15,7 +15,7 @@ export interface ExchangeRate {
     ecbMid: number;
 }
 
-export async function fetchExchangeRates(): Promise<ExchangeRate[]> {
+export async function exchangeRates(): Promise<ExchangeRate[]> {
     const apiKey = process.env.WEB_API_KEY;
     if (!apiKey) {
         throw new Error("Missing API key in environment variables.");

@@ -1,4 +1,4 @@
-import {ExchangeRate} from "@/libs/fetchExchangeRates";
+import {ExchangeRate} from "@/libs/exchangeRates";
 import {getData, toCountryKey} from "@/libs/countryCodes";
 
 export enum SortColumn {
