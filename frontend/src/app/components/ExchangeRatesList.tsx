@@ -7,7 +7,6 @@ import {formatChangeWithSign, getChangeArrow, getChangeColor} from "@/libs/rateM
 import {getSortArrow, SortColumn, SortDirection, sortRates, toggleDirection} from "@/libs/sorting";
 import {useRouter} from "next/navigation";
 
-
 export default function ExchangeRatesList({rates}: { rates: ExchangeRate[] }) {
     const router = useRouter();
 
