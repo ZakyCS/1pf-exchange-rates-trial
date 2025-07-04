@@ -47,13 +47,23 @@ export function getChangeArrow(change: number, className = "w-6 h-6 inline-block
     );
 }
 
-export function formatChangeWithSign(change: number) {
-    const sign = change > 0 ? "+" : change < 0 ? "−" : "\u00A0";
+export function formatChangeWithSign(change: number, styled: boolean) {
+    const sign = (() => {
+        if (change > 0) return "+";
+        if (change < 0) return "−";
+        return styled ? "\u00A0" : "";
+    })();
     const colorClass = change > 0 ? "text-green-600" : change < 0 ? "text-red-600" : "text-gray-500";
+    const containerClass = styled ? `inline-flex font-semibold text-lg ${colorClass} select-none` : "inline-flex select-none";
+    const signClass = (() => {
+        if (styled) return "inline-block w-4 font-mono";
+        if (change === 0 && !styled) return "";
+        return "inline-block w-4";
+    })();
 
     return (
-        <div className={`inline-flex font-semibold text-lg ${colorClass} select-none`}>
-            <span className="inline-block w-4 font-mono">{sign}</span>
+        <div className={containerClass}>
+            <span className={signClass}>{sign}</span>
             <span>{Math.abs(change).toFixed(2)} %</span>
         </div>
     );

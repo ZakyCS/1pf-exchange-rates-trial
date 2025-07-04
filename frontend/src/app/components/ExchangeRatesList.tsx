@@ -1,13 +1,16 @@
 "use client"
 
 import {useMemo, useState} from "react";
-import {ExchangeRate} from "@/libs/fetchExchangeRates";
+import {ExchangeRate} from "@/libs/exchangeRates";
 import {getData, getFlagEmoji, toCountryKey} from "@/libs/countryCodes";
-import {formatChangeWithSign, getChangeArrow, getChangeColor} from "@/libs/rateMoveUtils";
+import {formatChangeWithSign, getChangeArrow, getChangeColor} from "@/libs/rateMove";
 import {getSortArrow, SortColumn, SortDirection, sortRates, toggleDirection} from "@/libs/sorting";
+import {useRouter} from "next/navigation";
 
 
 export default function ExchangeRatesList({rates}: { rates: ExchangeRate[] }) {
+    const router = useRouter();
+
     const [query, setQuery] = useState("");
     const [sortColumn, setSortColumn] = useState<SortColumn>(SortColumn.COUNTRY);
     const [sortDirection, setSortDirection] = useState<SortDirection>(SortDirection.ASC);
@@ -48,7 +51,7 @@ export default function ExchangeRatesList({rates}: { rates: ExchangeRate[] }) {
                 placeholder="Vyhledávat podle názvu nebo měny"
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
-                className="w-full border border-gray-300 rounded-2xl px-4 py-2 mb-6 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full border border-gray-300 rounded-2xl px-4 py-2 mb-6 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 aria-label="Search exchange rates"
                 autoComplete="off"
             />
@@ -83,7 +86,7 @@ export default function ExchangeRatesList({rates}: { rates: ExchangeRate[] }) {
                     <tbody>
                     {filtered.length === 0 && (
                         <tr>
-                            <td colSpan={5} className="text-center text-gray-500 py-6">
+                            <td colSpan={4} className="text-center text-gray-500 py-6">
                                 Nebyla nalezena žádná odpovídající měna.
                             </td>
                         </tr>
@@ -101,7 +104,7 @@ export default function ExchangeRatesList({rates}: { rates: ExchangeRate[] }) {
                             <tr
                                 key={rate.shortName}
                                 className="cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200"
-                                onClick={() => window.location.href = `/detail/${rate.shortName}`}
+                                onClick={() => router.push(`/detail/${rate.shortName}`)}
                             >
                                 <td className={`table-cell-border text-2xl ${isLast ? "rounded-bl-xl" : ""}`}>
                                     <div className="flex items-center">
@@ -110,10 +113,10 @@ export default function ExchangeRatesList({rates}: { rates: ExchangeRate[] }) {
                                     </div>
                                 </td>
                                 <td className="table-cell-border font-medium">{czCountryName}</td>
-                                <td className="table-cell-border text-right">{cnbMid.toString().replace(".", ",")} Kč</td>
+                                <td className="table-cell-border text-right">{Number(cnbMid).toLocaleString("cs-CZ")} Kč</td>
                                 <td className={`table-cell-border text-right ${getChangeColor(changeNum)} font-semibold ${isLast ? "rounded-br-xl" : ""}`}>
                                     <span className="w-8 h-8 mr-2">{getChangeArrow(changeNum)}</span>
-                                    {formatChangeWithSign(changeNum)}
+                                    {formatChangeWithSign(changeNum, true)}
                                 </td>
                             </tr>
                         );
