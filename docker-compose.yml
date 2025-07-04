@@ -31,8 +31,12 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
+      args:
+        - WEB_API_KEY=${WEB_API_KEY}
     depends_on:
       - backend
+    environment:
+    - WEB_API_KEY=${WEB_API_KEY}
     ports:
     - "3000:3000"
 
