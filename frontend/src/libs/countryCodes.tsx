@@ -19,6 +19,7 @@ const CountryCode = {
     TURKEY: { code: "TR", cz: "Turecko" },
     USA: { code: "US", cz: "Spojené státy" },
     BULGARIA: { code: "BG", cz: "Bulharsko" },
+    CZECHIA: { code: "CZ", cz: "Česko" }
 };
 
 type CountryKey = keyof typeof CountryCode;
