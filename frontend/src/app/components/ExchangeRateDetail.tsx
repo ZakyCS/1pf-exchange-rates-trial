@@ -1,11 +1,11 @@
 "use client"
 
-import {ExchangeRate} from "@/libs/exchangeRates";
-import {getData, getFlagEmoji, toCountryKey} from "@/libs/countryCodes";
+import {ExchangeRate} from "@/app/libs/exchangeRates";
+import {getData, getFlagEmoji, toCountryKey} from "@/app/libs/countryCodes";
 import ExchangeCurrencyConverter from "@/app/components/ExchangeCurrencyConverter";
 import {useRouter} from "next/navigation";
-import {formatChangeWithSign} from "@/libs/rateMove";
-import {replaceDotsWithCommas} from "@/libs/replaceDotsWithCommas";
+import {formatChangeWithSign} from "@/app/libs/rateMove";
+import {replaceDotsWithCommas} from "@/app/libs/replaceDotsWithCommas";
 
 export default function ExchangeRateDetail({ currency, rates }: { currency: ExchangeRate, rates: ExchangeRate[]}) {
     const router = useRouter();

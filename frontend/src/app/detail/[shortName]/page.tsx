@@ -1,4 +1,4 @@
-import {exchangeRates} from "@/libs/exchangeRates";
+import {exchangeRates} from "@/app/libs/exchangeRates";
 import ExchangeRateDetail from "@/app/components/ExchangeRateDetail";
 
 export default async function DetailPage(props: { params: Promise<{ shortName: string }> }) {

@@ -1,4 +1,4 @@
-import {replaceDotsWithCommas} from "@/libs/replaceDotsWithCommas";
+import {replaceDotsWithCommas} from "@/app/libs/replaceDotsWithCommas";
 
 export function getChangeColor(change: number) {
     if (change > 0) return "text-green-600";

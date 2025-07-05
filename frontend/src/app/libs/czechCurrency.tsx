@@ -1,4 +1,4 @@
-import {ExchangeRate} from "@/libs/exchangeRates";
+import {ExchangeRate} from "@/app/libs/exchangeRates";
 
 export function getCzechCurrency(): ExchangeRate {
     return {

@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {getMenuToggleArrow} from "@/libs/menuToggle";
+import {getMenuToggleArrow} from "@/app/libs/menuToggle";
 
 export default function ExchangeCurrencySelect({value, onChange, options}: { value: string, onChange: (v: string) => void, options: React.ReactNode}) {
     const [isOpen, setIsOpen] = useState(false);

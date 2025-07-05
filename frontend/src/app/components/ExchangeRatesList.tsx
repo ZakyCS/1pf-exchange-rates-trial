@@ -1,12 +1,12 @@
 "use client"
 
 import {useMemo, useState} from "react";
-import {ExchangeRate} from "@/libs/exchangeRates";
-import {getData, getFlagEmoji, toCountryKey} from "@/libs/countryCodes";
-import {formatChangeWithSign, getChangeArrow, getChangeColor} from "@/libs/rateMove";
-import {getSortArrow, SortColumn, SortDirection, sortRates, toggleDirection} from "@/libs/sorting";
+import {ExchangeRate} from "@/app/libs/exchangeRates";
+import {getData, getFlagEmoji, toCountryKey} from "@/app/libs/countryCodes";
+import {formatChangeWithSign, getChangeArrow, getChangeColor} from "@/app/libs/rateMove";
+import {getSortArrow, SortColumn, SortDirection, sortRates, toggleDirection} from "@/app/libs/sorting";
 import {useRouter} from "next/navigation";
-import {replaceDotsWithCommas} from "@/libs/replaceDotsWithCommas";
+import {replaceDotsWithCommas} from "@/app/libs/replaceDotsWithCommas";
 
 export default function ExchangeRatesList({rates}: { rates: ExchangeRate[] }) {
     const router = useRouter();

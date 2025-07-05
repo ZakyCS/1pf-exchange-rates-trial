@@ -1,12 +1,12 @@
 "use client"
 
-import {ExchangeRate} from "@/libs/exchangeRates";
+import {ExchangeRate} from "@/app/libs/exchangeRates";
 import React, {useMemo, useState} from "react";
-import {getCzechCurrency} from "@/libs/czechCurrency";
-import {getData, getFlagEmoji, toCountryKey} from "@/libs/countryCodes";
-import {getMenuToggleArrow} from "@/libs/menuToggle";
+import {getCzechCurrency} from "@/app/libs/czechCurrency";
+import {getData, getFlagEmoji, toCountryKey} from "@/app/libs/countryCodes";
+import {getMenuToggleArrow} from "@/app/libs/menuToggle";
 import ExchangeCurrencySelect from "@/app/components/ExchangeCurrencySelect";
-import {replaceDotsWithCommas} from "@/libs/replaceDotsWithCommas";
+import {replaceDotsWithCommas} from "@/app/libs/replaceDotsWithCommas";
 
 export default function ExchangeCurrencyConverter({baseCurrency, rates}: { baseCurrency: ExchangeRate, rates: ExchangeRate[]}) {
     const [amountRaw, setAmountRaw] = useState("1");

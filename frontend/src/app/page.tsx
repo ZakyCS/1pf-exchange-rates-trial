@@ -1,4 +1,4 @@
-import {exchangeRates} from "@/libs/exchangeRates";
+import {exchangeRates} from "@/app/libs/exchangeRates";
 import ExchangeRatesList from "@/app/components/ExchangeRatesList";
 
 export default async function Home() {
