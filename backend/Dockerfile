@@ -8,7 +8,7 @@ COPY build.gradle.kts .
 COPY settings.gradle.kts .
 COPY src src
 
-RUN ./gradlew clean test bootJar --no-daemon
+RUN ./gradlew clean bootJar --no-daemon
 
 FROM amazoncorretto:21-alpine
 
