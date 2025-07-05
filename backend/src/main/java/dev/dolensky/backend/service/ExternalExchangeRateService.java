@@ -25,6 +25,7 @@ public class ExternalExchangeRateService {
     private final RestTemplate restTemplate;
 
     private final String apiKey = Optional.ofNullable(System.getenv("WEB_API_KEY"))
+            .or(() -> Optional.ofNullable(System.getProperty("WEB_API_KEY")))
             .orElseThrow(() -> new IllegalStateException("WEB_API_KEY environment variable is not set"));
 
     @Cacheable("exchangeRates")
