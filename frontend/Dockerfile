@@ -8,9 +8,6 @@ RUN npm ci
 
 COPY . .
 
-ARG WEB_API_KEY
-ENV WEB_API_KEY=$WEB_API_KEY
-
 RUN npm run build
 
 FROM node:18-alpine 
