@@ -5,6 +5,7 @@ import {getData, getFlagEmoji, toCountryKey} from "@/libs/countryCodes";
 import ExchangeCurrencyConverter from "@/app/components/ExchangeCurrencyConverter";
 import {useRouter} from "next/navigation";
 import {formatChangeWithSign} from "@/libs/rateMove";
+import {replaceDotsWithCommas} from "@/libs/replaceDotsWithCommas";
 
 export default function ExchangeRateDetail({ currency, rates }: { currency: ExchangeRate, rates: ExchangeRate[]}) {
     const router = useRouter();
@@ -60,11 +61,11 @@ export default function ExchangeRateDetail({ currency, rates }: { currency: Exch
                 <div className="flex flex-col items-center space-y-4">
                     <div className="flex items-center max-w-xs w-full">
                         <span className="font-semibold w-32 text-blue-700 dark:text-blue-400">ČNB střed:</span>
-                        <span>{currency.cnbMid.toString().replace(".", ",")}</span>
+                        <span>{replaceDotsWithCommas(currency.cnbMid)}</span>
                     </div>
                     <div className="flex items-center max-w-xs w-full">
                         <span className="font-semibold w-32 text-blue-700 dark:text-blue-400">ECB střed:</span>
-                        <span>{currency.ecbMid.toString().replace(".", ",")}</span>
+                        <span>{replaceDotsWithCommas(currency.ecbMid)}</span>
                     </div>
                     <div className="flex items-center max-w-xs w-full">
                         <span className="font-semibold w-32 text-blue-700 dark:text-blue-400">Změna:</span>
@@ -78,13 +79,13 @@ export default function ExchangeRateDetail({ currency, rates }: { currency: Exch
                     <h2 className="text-2xl font-semibold mb-5 text-blue-600 flex items-center gap-2 pl-2">Bezhotovostně</h2>
                     <ul className="space-y-3 text-gray-700 dark:text-gray-300 text-lg">
                         <li>
-                            <span className="font-semibold">Nákup:</span> {currency.currBuy}
+                            <span className="font-semibold">Nákup:</span> {replaceDotsWithCommas(currency.currBuy)}
                         </li>
                         <li>
-                            <span className="font-semibold">Prodej:</span> {currency.currSell}
+                            <span className="font-semibold">Prodej:</span> {replaceDotsWithCommas(currency.currSell)}
                         </li>
                         <li>
-                            <span className="font-semibold">Střed:</span> {currency.currMid}
+                            <span className="font-semibold">Střed:</span> {replaceDotsWithCommas(currency.currMid)}
                         </li>
                     </ul>
                 </div>
@@ -93,13 +94,13 @@ export default function ExchangeRateDetail({ currency, rates }: { currency: Exch
                     <h2 className="text-2xl font-semibold mb-5 text-blue-600 flex items-center gap-2 pl-2">Hotovostně</h2>
                     <ul className="space-y-3 text-gray-700 dark:text-gray-300 text-lg">
                         <li>
-                            <span className="font-semibold">Nákup:</span> {currency.valBuy}
+                            <span className="font-semibold">Nákup:</span> {replaceDotsWithCommas(currency.valBuy)}
                         </li>
                         <li>
-                            <span className="font-semibold">Prodej:</span> {currency.valSell}
+                            <span className="font-semibold">Prodej:</span> {replaceDotsWithCommas(currency.valSell)}
                         </li>
                         <li>
-                            <span className="font-semibold">Střed:</span> {currency.valMid}
+                            <span className="font-semibold">Střed:</span> {replaceDotsWithCommas(currency.valMid)}
                         </li>
                     </ul>
                 </div>

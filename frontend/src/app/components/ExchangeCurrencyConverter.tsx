@@ -6,6 +6,7 @@ import {getCzechCurrency} from "@/libs/czechCurrency";
 import {getData, getFlagEmoji, toCountryKey} from "@/libs/countryCodes";
 import {getMenuToggleArrow} from "@/libs/menuToggle";
 import ExchangeCurrencySelect from "@/app/components/ExchangeCurrencySelect";
+import {replaceDotsWithCommas} from "@/libs/replaceDotsWithCommas";
 
 export default function ExchangeCurrencyConverter({baseCurrency, rates}: { baseCurrency: ExchangeRate, rates: ExchangeRate[]}) {
     const [amountRaw, setAmountRaw] = useState("1");
@@ -55,7 +56,7 @@ export default function ExchangeCurrencyConverter({baseCurrency, rates}: { baseC
 
     const rate = getRate();
     const rawResult = amount * rate;
-    const result = (!isFinite(rawResult) || isNaN(rawResult)) ? "0,000" : rawResult.toFixed(3).replace(".", ",");
+    const result = (!isFinite(rawResult) || isNaN(rawResult)) ? "0,000" : replaceDotsWithCommas(rawResult.toFixed(3));
 
     function renderCurrencyOptions() {
         return allRates
@@ -177,7 +178,7 @@ export default function ExchangeCurrencyConverter({baseCurrency, rates}: { baseC
                     = {result} {toCurrency}
                 </div>
                 <div className="text-sm text-gray-600 dark:text-gray-400">
-                    Směnný kurz: 1 {fromCurrency} = {rate.toFixed(3)} {toCurrency}
+                    Směnný kurz: 1 {fromCurrency} = {replaceDotsWithCommas(rate.toFixed(3))} {toCurrency}
                 </div>
             </div>
         </section>

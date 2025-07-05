@@ -6,6 +6,7 @@ import {getData, getFlagEmoji, toCountryKey} from "@/libs/countryCodes";
 import {formatChangeWithSign, getChangeArrow, getChangeColor} from "@/libs/rateMove";
 import {getSortArrow, SortColumn, SortDirection, sortRates, toggleDirection} from "@/libs/sorting";
 import {useRouter} from "next/navigation";
+import {replaceDotsWithCommas} from "@/libs/replaceDotsWithCommas";
 
 export default function ExchangeRatesList({rates}: { rates: ExchangeRate[] }) {
     const router = useRouter();
@@ -112,7 +113,7 @@ export default function ExchangeRatesList({rates}: { rates: ExchangeRate[] }) {
                                     </div>
                                 </td>
                                 <td className="table-cell-border font-medium">{czCountryName}</td>
-                                <td className="table-cell-border text-right">{cnbMid.replace(".", ",")} Kč</td>
+                                <td className="table-cell-border text-right">{replaceDotsWithCommas(cnbMid)} Kč</td>
                                 <td className={`table-cell-border text-right ${getChangeColor(changeNum)} font-semibold ${isLast ? "rounded-br-xl" : ""}`}>
                                     <span className="w-8 h-8 mr-2">{getChangeArrow(changeNum)}</span>
                                     {formatChangeWithSign(changeNum, true)}

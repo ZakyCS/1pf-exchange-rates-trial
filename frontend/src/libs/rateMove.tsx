@@ -1,3 +1,5 @@
+import {replaceDotsWithCommas} from "@/libs/replaceDotsWithCommas";
+
 export function getChangeColor(change: number) {
     if (change > 0) return "text-green-600";
     if (change < 0) return "text-red-600";
@@ -66,7 +68,7 @@ export function formatChangeWithSign(change: number, styled: boolean) {
     return (
         <div className={containerClass}>
             <span className={signClass}>{sign}</span>
-            <span>{Math.abs(change).toFixed(2).replace(".", ",")} %</span>
+            <span>{replaceDotsWithCommas(Math.abs(change).toFixed(2))} %</span>
         </div>
     );
 }
