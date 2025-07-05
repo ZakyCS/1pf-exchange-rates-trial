@@ -53,8 +53,10 @@ export function formatChangeWithSign(change: number, styled: boolean) {
         if (change < 0) return "−";
         return styled ? "\u00A0" : "";
     })();
+
     const colorClass = change > 0 ? "text-green-600" : change < 0 ? "text-red-600" : "text-gray-500";
     const containerClass = styled ? `inline-flex font-semibold text-lg ${colorClass} select-none` : "inline-flex select-none";
+
     const signClass = (() => {
         if (styled) return "inline-block w-4 font-mono";
         if (change === 0 && !styled) return "";
@@ -64,7 +66,7 @@ export function formatChangeWithSign(change: number, styled: boolean) {
     return (
         <div className={containerClass}>
             <span className={signClass}>{sign}</span>
-            <span>{Math.abs(change).toFixed(2)} %</span>
+            <span>{Number(Math.abs(change).toFixed(2)).toLocaleString("cs-CZ")} %</span>
         </div>
     );
 }
