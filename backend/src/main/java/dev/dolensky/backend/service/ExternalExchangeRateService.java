@@ -29,8 +29,6 @@ public class ExternalExchangeRateService {
 
     @Cacheable("exchangeRates")
     public List<ExchangeRate> getExternalExchangeRates() {
-        System.out.println("Fetching from external API...");
-
         String url = WEB_API_URL + "?web-api-key=" + apiKey;
         ExchangeRate[] fetchedRates = restTemplate.getForObject(url, ExchangeRate[].class);
 
