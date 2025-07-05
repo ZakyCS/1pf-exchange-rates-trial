@@ -60,18 +60,24 @@ export default function ExchangeCurrencyConverter({baseCurrency, rates}: { baseC
 
     function renderCurrencyOptions() {
         return allRates
-            .filter((rate) => rate.shortName !== baseCurrency.shortName)
-            .map((rate) => {
-            const countryKey = toCountryKey(rate.country);
-            const countryFlag = countryKey ? getFlagEmoji(countryKey) : "🏳️";
-            const czCountryName = countryKey ? getData(countryKey)?.cz : rate.country;
+            .filter(rate => rate.shortName !== baseCurrency.shortName)
+            .map(rate => {
+                const countryKey = toCountryKey(rate.country);
+                const countryFlag = countryKey ? getFlagEmoji(countryKey) : "🏳️";
 
-            return (
+                const czCountryName =
+                    countryKey && getData(countryKey)?.cz
+                        ? getData(countryKey)!.cz
+                        : rate.country ?? "";
+
+                return { rate, countryFlag, czCountryName };
+            })
+            .sort((a, b) => a.czCountryName.localeCompare(b.czCountryName))
+            .map(({ rate, countryFlag, czCountryName }) => (
                 <option key={rate.shortName} value={rate.shortName}>
                     {countryFlag} {rate.shortName} – {czCountryName}
                 </option>
-            );
-        });
+            ));
     }
 
     const getCurrencyLabel = (shortName: string) => {
