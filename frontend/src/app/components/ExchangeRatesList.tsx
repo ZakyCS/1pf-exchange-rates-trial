@@ -112,7 +112,7 @@ export default function ExchangeRatesList({rates}: { rates: ExchangeRate[] }) {
                                     </div>
                                 </td>
                                 <td className="table-cell-border font-medium">{czCountryName}</td>
-                                <td className="table-cell-border text-right">{Number(cnbMid).toLocaleString("cs-CZ")} Kč</td>
+                                <td className="table-cell-border text-right">{cnbMid.replace(".", ",")} Kč</td>
                                 <td className={`table-cell-border text-right ${getChangeColor(changeNum)} font-semibold ${isLast ? "rounded-br-xl" : ""}`}>
                                     <span className="w-8 h-8 mr-2">{getChangeArrow(changeNum)}</span>
                                     {formatChangeWithSign(changeNum, true)}

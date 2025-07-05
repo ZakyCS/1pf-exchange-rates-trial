@@ -55,7 +55,7 @@ export default function ExchangeCurrencyConverter({baseCurrency, rates}: { baseC
 
     const rate = getRate();
     const rawResult = amount * rate;
-    const result = (!isFinite(rawResult) || isNaN(rawResult)) ? "0,000" : Number(rawResult.toFixed(3)).toLocaleString("cs-CZ");
+    const result = (!isFinite(rawResult) || isNaN(rawResult)) ? "0,000" : rawResult.toFixed(3).replace(".", ",");
 
     function renderCurrencyOptions() {
         return allRates

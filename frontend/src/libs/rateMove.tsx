@@ -66,7 +66,7 @@ export function formatChangeWithSign(change: number, styled: boolean) {
     return (
         <div className={containerClass}>
             <span className={signClass}>{sign}</span>
-            <span>{Number(Math.abs(change).toFixed(2)).toLocaleString("cs-CZ")} %</span>
+            <span>{Math.abs(change).toFixed(2).replace(".", ",")} %</span>
         </div>
     );
 }

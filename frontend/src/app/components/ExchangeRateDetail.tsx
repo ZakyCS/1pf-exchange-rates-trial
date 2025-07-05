@@ -60,11 +60,11 @@ export default function ExchangeRateDetail({ currency, rates }: { currency: Exch
                 <div className="flex flex-col items-center space-y-4">
                     <div className="flex items-center max-w-xs w-full">
                         <span className="font-semibold w-32 text-blue-700 dark:text-blue-400">ČNB střed:</span>
-                        <span>{currency.cnbMid.toLocaleString("cs-CZ")}</span>
+                        <span>{currency.cnbMid.toString().replace(".", ",")}</span>
                     </div>
                     <div className="flex items-center max-w-xs w-full">
                         <span className="font-semibold w-32 text-blue-700 dark:text-blue-400">ECB střed:</span>
-                        <span>{currency.ecbMid.toLocaleString("cs-CZ")}</span>
+                        <span>{currency.ecbMid.toString().replace(".", ",")}</span>
                     </div>
                     <div className="flex items-center max-w-xs w-full">
                         <span className="font-semibold w-32 text-blue-700 dark:text-blue-400">Změna:</span>
