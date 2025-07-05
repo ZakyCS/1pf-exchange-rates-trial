@@ -71,7 +71,7 @@ export default function ExchangeRatesList({rates}: { rates: ExchangeRate[] }) {
                         </th>
                         <th onClick={() => handleSort(SortColumn.CNB_MID)} className="table-cell-border text-right cursor-pointer select-none">
                             <div className="pr-2 flex items-center justify-end">
-                                <span>ČNB Střed</span>
+                                <span>Střed ČNB</span>
                                 {getSortArrow(sortColumn === SortColumn.CNB_MID ? sortDirection : null)}
                             </div>
                         </th>
