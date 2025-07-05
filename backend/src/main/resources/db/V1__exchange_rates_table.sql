@@ -1,0 +1,20 @@
+CREATE TABLE IF NOT EXISTS exchange_rates (
+    id BIGSERIAL PRIMARY KEY,
+    short_name VARCHAR(3) NOT NULL,
+    valid_from TIMESTAMP NOT NULL,
+    name VARCHAR(35) NOT NULL,
+    country VARCHAR(50) NOT NULL,
+    move DECIMAL NOT NULL,
+    amount SMALLINT NOT NULL,
+    val_buy DECIMAL,
+    val_sell DECIMAL,
+    val_mid DECIMAL,
+    curr_buy DECIMAL NOT NULL,
+    curr_sell DECIMAL NOT NULL,
+    curr_mid DECIMAL NOT NULL,
+    version SMALLINT NOT NULL,
+    cnb_mid DECIMAL,
+    ecb_mid DECIMAL,
+    last_updated TIMESTAMP NOT NULL,
+    UNIQUE (short_name, version)
+);
