@@ -1,7 +1,5 @@
-import {exchangeRates} from "@/app/libs/exchangeRates";
-import ExchangeRatesList from "@/app/components/ExchangeRatesList";
+import ExchangeRatesContainer from "@/app/components/ExchangeRatesContainer";
 
 export default async function Home() {
-    const rates = await exchangeRates();
-    return <ExchangeRatesList rates={rates} />;
+    return <ExchangeRatesContainer />;
 }

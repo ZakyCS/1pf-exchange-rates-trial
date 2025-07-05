@@ -8,7 +8,7 @@ import {getSortArrow, SortColumn, SortDirection, sortRates, toggleDirection} fro
 import {useRouter} from "next/navigation";
 import {replaceDotsWithCommas} from "@/app/libs/replaceDotsWithCommas";
 
-export default function ExchangeRatesList({rates}: { rates: ExchangeRate[] }) {
+export default function ExchangeRatesList({ rates } : { rates: ExchangeRate[] }) {
     const router = useRouter();
 
     const [query, setQuery] = useState("");

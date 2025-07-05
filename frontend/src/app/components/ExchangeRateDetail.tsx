@@ -7,7 +7,7 @@ import {useRouter} from "next/navigation";
 import {formatChangeWithSign} from "@/app/libs/rateMove";
 import {replaceDotsWithCommas} from "@/app/libs/replaceDotsWithCommas";
 
-export default function ExchangeRateDetail({ currency, rates }: { currency: ExchangeRate, rates: ExchangeRate[]}) {
+export default function ExchangeRateDetail({ currency, rates }: { currency: ExchangeRate, rates: ExchangeRate[] }) {
     const router = useRouter();
 
     const countryKey = toCountryKey(currency.country);
