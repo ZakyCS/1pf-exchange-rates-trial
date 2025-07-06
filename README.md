@@ -50,6 +50,8 @@ monorepo/
 ├── backend/     # Spring Boot app
 ├── frontend/    # Next.js app
 ├── .env         # Environment variables
+├── .gitignore
+├── .gitattributes
 ├── docker-compose.yml
 ├── README.md
 └── LICENSE
