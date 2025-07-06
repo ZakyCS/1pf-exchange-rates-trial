@@ -16,7 +16,6 @@ WORKDIR /frontend
 
 COPY --from=builder /frontend/.next/standalone ./
 COPY --from=builder /frontend/.next/static ./.next/static
-COPY --from=builder /frontend/public ./public
 
 EXPOSE 3000
 
