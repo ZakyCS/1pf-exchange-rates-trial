@@ -28,7 +28,7 @@ public class ExternalExchangeRateService {
             .or(() -> Optional.ofNullable(System.getProperty("WEB_API_KEY")))
             .orElseThrow(() -> new IllegalStateException("WEB_API_KEY environment variable is not set"));
 
-    @Cacheable("exchangeRates")
+    @Cacheable(value = "exchangeRatesApi")
     public List<ExchangeRate> getExternalExchangeRates() {
         String url = WEB_API_URL + "?web-api-key=" + apiKey;
         ExchangeRate[] fetchedRates = restTemplate.getForObject(url, ExchangeRate[].class);

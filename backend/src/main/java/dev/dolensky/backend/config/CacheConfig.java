@@ -13,7 +13,7 @@ public class CacheConfig {
 
     @Bean
     public CacheManager cacheManager() {
-        CaffeineCacheManager cacheManager = new CaffeineCacheManager("exchangeRates");
+        CaffeineCacheManager cacheManager = new CaffeineCacheManager("exchangeRatesApi", "exchangeRatesDb");
         cacheManager.setCaffeine(Caffeine.newBuilder().expireAfterWrite(1, TimeUnit.HOURS));
 
         return cacheManager;
