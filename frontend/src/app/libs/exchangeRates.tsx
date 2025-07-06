@@ -1,3 +1,7 @@
+"use client"
+
+import {getDbToggle} from "@/app/libs/getDbToggle";
+
 export interface ExchangeRate {
     shortName: string;
     name: string;
@@ -16,17 +20,8 @@ export interface ExchangeRate {
 }
 
 export async function exchangeRates(): Promise<ExchangeRate[]> {
-    const apiKey = process.env.WEB_API_KEY;
-    if (!apiKey) {
-        throw new Error("Missing API key in environment variables.");
-    }
-
-    const apiResponse = await fetch(
-        `https://webapi.developers.erstegroup.com/api/csas/public/sandbox/v2/rates/exchangerates?web-api-key=${apiKey}`,
-        {
-            next: { revalidate: 3600 },
-        }
-    );
+    const useDb = getDbToggle();
+    const apiResponse = await fetch(`http://localhost:8080/api/exchange-rates?usedb=${useDb}`);
 
     if (!apiResponse.ok) {
         throw new Error("Failed to fetch exchange rates.");

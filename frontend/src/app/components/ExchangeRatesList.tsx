@@ -8,7 +8,7 @@ import {getSortArrow, SortColumn, SortDirection, sortRates, toggleDirection} fro
 import {useRouter} from "next/navigation";
 import {replaceDotsWithCommas} from "@/app/libs/replaceDotsWithCommas";
 
-export default function ExchangeRatesList({rates}: { rates: ExchangeRate[] }) {
+export default function ExchangeRatesList({ rates } : { rates: ExchangeRate[] }) {
     const router = useRouter();
 
     const [query, setQuery] = useState("");
@@ -71,7 +71,7 @@ export default function ExchangeRatesList({rates}: { rates: ExchangeRate[] }) {
                         </th>
                         <th onClick={() => handleSort(SortColumn.CNB_MID)} className="table-cell-border text-right cursor-pointer select-none">
                             <div className="pr-2 flex items-center justify-end">
-                                <span>ČNB Střed</span>
+                                <span>Střed ČNB</span>
                                 {getSortArrow(sortColumn === SortColumn.CNB_MID ? sortDirection : null)}
                             </div>
                         </th>

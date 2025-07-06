@@ -1,0 +1,1 @@
+CREATE INDEX IF NOT EXISTS idx_shortname_version_desc ON exchange_rates(short_name, version DESC);
